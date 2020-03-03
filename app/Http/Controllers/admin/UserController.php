@@ -36,7 +36,6 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
 
         return view('admin.users.create');
 
@@ -128,7 +127,7 @@ class UserController extends Controller
             'email' => $data['email'],
             'phone' => $data['phone'],
             'password' => bcrypt($data['password']),
-            'avatar' => $data['avatar'],
+            // 'avatar' => $data['avatar'],
             // if($request->hasFile('avatar')){
             //     $file = $request->file('avatar');
             //     $filename = $file->hashName();
@@ -137,6 +136,8 @@ class UserController extends Controller
             'role_id' => $data['role_id'],
             'is_active' => $data['is_active'],
         ]);
+        // dd(1);
+        return redirect()->route('users.index');
     }
 
     /**

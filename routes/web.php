@@ -15,6 +15,10 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
+// client
+Route::get('/', 'client\HomeController')->name('homepage');
+
+// administration
 Route::group([
     'prefix' => 'admin',
     'middleware' => 'check_auth',
@@ -23,10 +27,12 @@ Route::group([
     // user
     Route::resource('users', 'admin\UserController');
     Route::resource('posts', 'admin\PostController');
-    Route::resource('categories', 'admin\PostController');
+    Route::resource('categories', 'admin\CategoryController');
     Route::resource('comments', 'admin\CommentController');
 });
 
 Route::get('login', 'AuthController@getLoginForm');
 Route::post('login', 'AuthController@login')->name('auth.login');
 Route::get('logout', 'AuthController@logout')->name('auth.logout');
+
+

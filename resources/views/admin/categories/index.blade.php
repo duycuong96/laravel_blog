@@ -1,13 +1,13 @@
 @extends('admin.layouts.layouts')
 
-@section('title', 'Danh sách bài viết')
+@section('title', 'Danh sách chuyên mục')
 
 @section('contents')
 <!-- Content Header (Page header) -->
 <div class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
-            <div class="col-sm-6">
+            <div class="col-sm-12">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
                     <li class="breadcrumb-item active">Starter Page</li>
@@ -26,22 +26,20 @@
 
                 <div class="card card-primary card-outline">
                     <div class="card-header">
-                        <h3 class="card-title">Danh sách User</h3>
-                        <a href="{{ route('posts.create') }}" class="btn btn-primary float-right">Thêm mới</a>
+                        <h3 class="card-title">Danh sách chuyên mục bài viết</h3>
+                        <a href="{{ route('categories.create') }}" class="btn btn-primary float-right">Thêm mới</a>
                     </div>
                     <div class="card-body">
                         <table class="table table-head-fixed text-nowrap">
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Tên</th>
-                                    <th>Chuyên mục</th>
-                                    <th>Tác giả</th>
+                                    <th>Tên chuyên mục</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @include('admin.posts.table');
+                                @include('admin.categories.table', compact('categories'))
                             </tbody>
                         </table>
                     </div>
@@ -65,7 +63,11 @@ function destroy(){
 }
 
 
+
+
 </script>
+
+
 
 @stop
 

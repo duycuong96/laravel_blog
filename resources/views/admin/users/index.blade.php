@@ -7,11 +7,8 @@
 <div class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
-            <div class="col-sm-6">
-                <h1 class="m-0 text-dark">Danh sách user</h1>
-            </div><!-- /.col -->
-            <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
+            <div class="col-sm-12">
+                <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
                     <li class="breadcrumb-item active">Starter Page</li>
                 </ol>
@@ -28,6 +25,10 @@
             <div class="col-lg-12">
 
                 <div class="card card-primary card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title">Danh sách User</h3>
+                        <a href="{{ route('users.create') }}" class="btn btn-primary float-right">Thêm mới</a>
+                    </div>
                     <div class="card-body">
                         <table class="table table-head-fixed text-nowrap">
                             <thead>
@@ -35,30 +36,13 @@
                                     <th>ID</th>
                                     <th>Tên</th>
                                     <th>Email</th>
-                                    <th>Số điện thoại</th>
                                     <th>Bài viết</th>
+                                    <th>Vai trò</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($users as $user)
-                                    <tr>
-                                        <td>{{ $user->id}}</td>
-                                        <td>{{ $user->name }}</td>
-                                        <td>{{ $user->email }}</td>
-                                        <td>{{ $user->phone }}</td>
-                                        <td>{{ $user->post->count() }}</td>
-                                        <td>
-                                        <a class="btn btn-primary btn-sm" href="{{ url('admin/users/'. $user->id . '/edit') }}">Sửa</a>
-                                            {{-- <a onclick="return destroy()" href="{{ route('users.destroy') }}" class="btn btn-danger btn-sm">Xóa</a> --}}
-                                            <form action="{{ url('admin/users' , $user->id ) }}" method="POST">
-                                                {{ csrf_field() }}
-                                                {{ method_field('DELETE') }}
-                                                <button class="btn btn-danger btn-sm" onclick="return destroy()">Delete</button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                @endforeach
+                                @include('admin.users.table', compact('users'))
                             </tbody>
                         </table>
                     </div>
@@ -82,7 +66,11 @@ function destroy(){
 }
 
 
+
+
 </script>
+
+
 
 @stop
 

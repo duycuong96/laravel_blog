@@ -7,11 +7,8 @@
 <div class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
-            <div class="col-sm-6">
-                <h1 class="m-0 text-dark">Thêm mới user</h1>
-            </div><!-- /.col -->
-            <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
+            <div class="col-sm-12">
+                <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
                     <li class="breadcrumb-item active">Starter Page</li>
                 </ol>
@@ -26,11 +23,11 @@
     <div class="container-fluid">
       <div class="row">
         <!-- left column -->
-        <div class="col-md-7">
+        <div class="col-md-12">
           <!-- general form elements -->
           <div class="card card-primary">
             <div class="card-header">
-              <h3 class="card-title">Quick Example</h3>
+              <h3 class="card-title">Thêm mới</h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
@@ -64,32 +61,25 @@
                       <input type="file" class="custom-file-input" id="exampleInputFile" name="avatar">
                       <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                     </div>
-                    <div class="input-group-append">
-                      <span class="input-group-text" id="">Upload</span>
-                    </div>
                   </div>
                 </div>
                 <div class="form-group">
                     <label>Vai trò</label>
                     <select class="custom-select" name="role_id">
-                      <option value="0">option 1</option>
-                      <option value="1">option 2</option>
-                      <option value="3">option 3</option>
+                      <option value="1">User</option>
+                      <option value="2">Admin</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <div class="custom-control custom-radio">
-                      <input class="custom-control-input" type="radio" id="customRadio1" name="is_active" value="0">
+                    <label>Trạng thái: </label>
+                    <div class="custom-control custom-radio d-inline">
+                      <input class="custom-control-input" type="radio" id="customRadio1" name="is_active" value="1">
                       <label for="customRadio1" class="custom-control-label">Hoạt động</label>
                     </div>
-                    <div class="custom-control custom-radio">
-                      <input class="custom-control-input" type="radio" id="customRadio2" name="is_active" value="1" checked="">
+                    <div class="custom-control custom-radio d-inline">
+                      <input class="custom-control-input" type="radio" id="customRadio2" name="is_active" value="0" checked="">
                       <label for="customRadio2" class="custom-control-label">Không hoạt động</label>
                     </div>
-                </div>
-                <div class="form-check">
-                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                  <label class="form-check-label" for="exampleCheck1">Check me out</label>
                 </div>
               </div>
               <!-- /.card-body -->
