@@ -27,7 +27,9 @@ class StoreRequest extends FormRequest
             'name'=>'required',
             'email'=>'required|email|min:6',
             'password'=>'required|min:6',
-
+            'avatar' => 'image',
+            'phone' => 'required|numeric',
+            'role_id' => 'required',
         ];
     }
 
@@ -40,6 +42,11 @@ class StoreRequest extends FormRequest
             'email.min'=>'Email không được nhỏ hơn 6 ký tự',
             'password.required'=>'Không được để trống password',
             'password.min'=>'Password Không được nhỏ hơn 6 ký tự',
+            'avatar.required' => 'Ảnh không được để trống',
+            'avatar.image' => 'Ảnh không đúng định dạng',
+            'phone.required' => 'Số điện thoại không để trống',
+            'phone.number' => 'Chưa nhập số điện thoại',
+            'role_id.required' => 'Phải chọn vai trò',
         ];
     }
 }

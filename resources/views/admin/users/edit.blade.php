@@ -31,7 +31,7 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form role="form" method="POST" action="{{ route('users.update', [$user->id]) }}">
+            <form role="form" method="POST" action="{{ route('users.update', [$user->id]) }}" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 {{ method_field('PUT') }}
               <div class="card-body">
@@ -66,7 +66,7 @@
                 </div>
                 <div class="form-group">
                     <label>Vai trò</label>
-                    <select class="custom-select" name="role_id" >
+                    <select class="custom-select" name="role_id">
                       <option value="1">User</option>
                       <option value="2">Admin</option>
                     </select>
@@ -105,13 +105,13 @@
 @section('script')
 
 @parent
-        <!-- bs-custom-file-input -->
-        <script src="plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
-<script>
-$(document).ready(function () {
-  bsCustomFileInput.init();
-});
+    <!-- bs-custom-file-input -->
+    <script src="plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+    <script>
+    $(document).ready(function () {
+    bsCustomFileInput.init();
+    });
 
-</script>
+    </script>
 
 @stop

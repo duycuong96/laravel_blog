@@ -31,7 +31,7 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form role="form" method="POST" action="{{ route('users.store') }}">
+            <form role="form" method="POST" action="{{ route('categories.store') }}" enctype="multipart/form-data">
             @csrf
               <div class="card-body">
                 <div class="form-group">
@@ -42,7 +42,13 @@
                 <div class="form-group">
                     <label>Mô tả</label>
                     <input type="text" class="form-control" name="description">
-                    {{ showError($errors,'name') }}
+                    {{ showError($errors,'description') }}
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputFile">File input</label>
+                    <div class="input-group">
+                      <input type="file" name="image" class="form-control">
+                    </div>
                   </div>
 
               </div>

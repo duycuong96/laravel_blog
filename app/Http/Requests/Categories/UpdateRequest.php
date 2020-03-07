@@ -25,6 +25,8 @@ class UpdateRequest extends FormRequest
     {
         return [
             'name'=>'required',
+            'description' => 'required',
+            'image'=>'image',
         ];
     }
 
@@ -32,6 +34,8 @@ class UpdateRequest extends FormRequest
     {
         return [
             'name.required' => 'Không được để trống',
+            'description.required' =>  'Không được để trống',
+            'image.image' => 'Ảnh không đúng định dạng',
         ];
     }
 }

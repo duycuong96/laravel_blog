@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Exception;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Users\StoreRequest;
+use App\Http\Requests\Users\UpdateRequest;
 use App\Models\User;
 
 class UserController extends Controller
@@ -36,9 +37,7 @@ class UserController extends Controller
      */
     public function create()
     {
-
         return view('admin.users.create');
-
     }
 
     /**
@@ -49,33 +48,14 @@ class UserController extends Controller
      */
     public function store(StoreRequest $request)
     {
-        $model = new User();
-    	$model->fill($request->all());
-        if($request->hasFile('avatar')){
+        $data = Arr::except($request->all(), [
+            '_token',
+            'avatar'
+        ]);
+        $data['avatar'] = $request->file('avatar')->store('avatar', 'public');
+        $data['password'] = bcrypt(($data['password']));
 
-            // lấy tên gốc của ảnh
-            $filename = $request->avatar->getClientOriginalName();
-            // thay thế ký tự khoảng trắng bằng ký tự '-'
-            // $filename = str_replace(' ', '-', $filename);
-            // thêm đoạn chuỗi không bị trùng đằng trước tên ảnh
-            $filename = uniqid() . '-' . $filename;
-            // lưu ảnh và trả về đường dẫn
-            $path = $request->file('avatar')->storeAs(
-                'images', $filename
-            );
-            $model->avatar = $path;
-        }
-
-    	DB::beginTransaction();
-    	try{
-
-			$model->save();
-			DB::commit();
-    	}catch(Exception $ex){
-    		// ghi log lỗi lại
-    		DB::rollback();
-    	}
-
+        $user = User::create($data);
         //
         return redirect()->route('users.index');
     }
@@ -116,26 +96,18 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateRequest $request, $id)
     {
         //
         $user = User::find($id);
-        $data = $request->all();
-
-        $user->update([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'phone' => $data['phone'],
-            'password' => bcrypt($data['password']),
-            // 'avatar' => $data['avatar'],
-            // if($request->hasFile('avatar')){
-            //     $file = $request->file('avatar');
-            //     $filename = $file->hashName();
-            //     'avatar' = $file->store('uploads');
-            // }
-            'role_id' => $data['role_id'],
-            'is_active' => $data['is_active'],
+        $data = Arr::except($request->all(), [
+            '_token',
+            'avatar'
         ]);
+        $data['avatar'] = $request->file('avatar')->store('avatar', 'public');
+        $data['password'] = bcrypt(($data['password']));
+        // $data = $request->all();
+        $user->update($data);
         // dd(1);
         return redirect()->route('users.index');
     }
@@ -150,7 +122,6 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $user->delete();
-
         return redirect()->route('users.index');
     }
 }

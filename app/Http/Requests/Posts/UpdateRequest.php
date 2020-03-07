@@ -24,14 +24,18 @@ class UpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'=>'required',
+            'title'=>'required',
+            'content'=>'required',
+            'image'=>'image',
         ];
     }
 
     public function messages()
     {
         return [
-            'name.required' => 'Không được để trống',
+            'title.required' => 'Không được để trống',
+            'content.required' => 'Không được để trống',
+            'image.image' => 'Ảnh không đúng định dạng',
         ];
     }
 }

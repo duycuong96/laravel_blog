@@ -31,7 +31,7 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form role="form" method="POST" action="{{ route('users.store') }}">
+            <form role="form" method="POST" action="{{ route('users.store') }}" enctype="multipart/form-data">
             @csrf
               <div class="card-body">
                 <div class="form-group">
@@ -57,10 +57,7 @@
                 <div class="form-group">
                   <label for="exampleInputFile">File input</label>
                   <div class="input-group">
-                    <div class="custom-file">
-                      <input type="file" class="custom-file-input" id="exampleInputFile" name="avatar">
-                      <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                    </div>
+                    <input type="file" name="avatar" class="form-control">
                   </div>
                 </div>
                 <div class="form-group">

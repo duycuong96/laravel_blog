@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Categories\StoreRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use App\Models\Category;
@@ -17,6 +18,7 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::all();
+
         return view('admin.categories.index', [
             'categories' => $categories,
         ]);
@@ -38,13 +40,16 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
-        $data = $request->all();
-        $data = Arr::except($request, ['_token']);
+        $data = Arr::except($request->all(), [
+            '_token',
+            'image'
+        ]);
+        $data['image'] = $request->file('image')->store('images', 'public');
 
         $category = Category::create($data);
-
+        // return redirect()->route('categories.index');
         return redirect()->route('categories.index');
 
     }
