@@ -21,7 +21,7 @@
         <div class="post-content">
             <h6 class="post-title"><a href="{{ route('client.post', $post->id) }}">{{ $post->title}}</a></h6>
             <p class="post-short-desc" style="overflow: hidden;-webkit-line-clamp: 3;height: 75px;display: -webkit-box;-webkit-box-orient: vertical;">{{ $post->content}}</p>
-            <a href="#" class="continue-link">Continue Reading...</a>
+            <a href="{{ url('my-posts/'. $post->id . '/edit') }}" class="continue-link">Chỉnh sửa</a>
         </div>
     </div><!-- /.single-popular-post -->
 </div>

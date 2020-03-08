@@ -9,6 +9,7 @@ class CategoryController extends Controller
 {
     //
     public function categoryPost(){
-
+        // $data['categories'] = ;
+        // return view('client.homepage.index', $data);
     }
 }

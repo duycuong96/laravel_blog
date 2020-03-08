@@ -62,7 +62,7 @@
                 </div>
                 <div class="form-group">
                     <label>Vai trò</label>
-                    <select class="custom-select" name="role_id">
+                    <select class="custom-select" name="role">
                       <option value="1">User</option>
                       <option value="2">Admin</option>
                     </select>

@@ -5,7 +5,7 @@
     <td>{{ $user->email }}</td>
     <td>{{ $user->post->count() }}</td>
     <td>
-        @if ($user->role_id == 1)
+        @if ($user->role == 1)
         User
         @else
         Admin

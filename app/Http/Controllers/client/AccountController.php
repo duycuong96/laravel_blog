@@ -106,7 +106,7 @@ class AccountController extends Controller
     		DB::rollback();
     	}
         // dd(1);
-        return redirect()->route('account.index');
+        return redirect()->route('client.account.index');
     }
 
     /**

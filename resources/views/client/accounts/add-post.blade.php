@@ -51,12 +51,48 @@
 
             </div>
             <div class="col-md-8">
-                <div class="post-content">
+                <div class="post-content" style="text-align:left">
                     <h2 class="section-title">Bài viết của bạn</h2>
                     {{-- <a href="" class="btn btn-primary">Viết bài</a> --}}
                     <hr>
-                    <div class="row">
-                        @include('client.accounts.list-post')
+                    <div class="row" style="padding:20px">
+                        <form role="form" method="POST" action="{{ route('client.my-posts.store') }}" enctype="multipart/form-data">
+                            @csrf
+                              <div class="card-body">
+                                <div class="form-group">
+                                  <label>Title</label>
+                                  <input type="text" class="form-control" name="title">
+                                  {{ showError($errors,'title') }}
+                                </div>
+                                <div class="form-group">
+                                    <label>Content</label>
+                                    <textarea name="content" class="form-control" id="" rows="5"></textarea>
+                                    {{ showError($errors,'content') }}
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="exampleInputFile">Ảnh</label>
+                                    <div class="input-group">
+                                      <input type="file" name="image" class="form-control">
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="">Chuyên mục</label>
+                                    <select name="category_id" id="" class="form-control">
+                                        @foreach ($categories as $category)
+                                            <option value="{{$category->id}}">{{$category->name}}</option>
+                                        @endforeach
+                                    </select>
+                                  </div>
+
+
+
+                              </div>
+                              <!-- /.card-body -->
+
+                              <div class="card-footer">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                              </div>
+                            </form>
                     </div>
                 </div>
             </div>

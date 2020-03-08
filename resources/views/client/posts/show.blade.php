@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-md-8 col-sm-12">
                 <div class="single-blog-details">
-                    <span class="tag">sports</span>
+                <span class="tag">{{ $post->category->name }}</span>
                     <h1 class="" style="text-align:center">{{ $post->title }}</h1>
                     <p class="post-date">Posted on July 10, 2015</p>
                     <div class="post-long-desc">
