@@ -36,12 +36,11 @@
                                     <th>ID</th>
                                     <th>Tên</th>
                                     <th>Chuyên mục</th>
-                                    <th>Tác giả</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @include('admin.posts.table');
+                                @include('admin.posts.table')
                             </tbody>
                         </table>
                     </div>

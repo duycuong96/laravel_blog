@@ -18,8 +18,8 @@
 							<div class="header-top-right fix">
 								<div class="header-links">
 									<ul>
-										<li><a href="#">Log in</a></li>
-										<li><a href="#">Register</a></li>
+										<li><a href="{{ route('form-register') }}">Đăng ký</a></li>
+										<li><a href="{{ route('form-login') }}">Đăng nhập</a></li>
 									</ul>
 								</div>
 								<div class="header-search">

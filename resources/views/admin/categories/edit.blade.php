@@ -31,23 +31,31 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form role="form" method="POST" action="{{ route('users.update', [$cate->id]) }}">
+            <form role="form" method="POST" action="{{ route('categories.update', [$category->id]) }}" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 {{ method_field('PUT') }}
               <div class="card-body">
                 <div class="form-group">
                   <label>Full Name</label>
-                <input type="text" class="form-control" name="name" value="{{ $cate->name }}">
+                <input type="text" class="form-control" name="name" value="{{ $category->name }}">
                   {{ showError($errors,'name') }}
                 </div>
                 <div class="form-group">
                     <label>Mô tả</label>
-                    <input type="text" class="form-control" name="description" value="{{$cate->description}}">
+                    <input type="text" class="form-control" name="description" value="{{$category->description}}">
                     {{ showError($errors,'description') }}
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputFile">File input</label>
+                    <div class="input-group">
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="exampleInputFile" name="image" value="{{ $category->image }}">
+                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                      </div>
+                    </div>
                   </div>
               </div>
               <!-- /.card-body -->
-
               <div class="card-footer">
                 <button type="submit" class="btn btn-primary">Submit</button>
               </div>

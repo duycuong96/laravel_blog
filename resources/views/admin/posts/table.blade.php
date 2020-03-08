@@ -2,8 +2,7 @@
 <tr>
     <td>{{ $post->id}}</td>
     <td>{{ $post->title }}</td>
-    <td>{{ $post->id }}</td>
-    <td>{{ $post->id }}</td>
+    <td>{{ $post->category->name }}</td>
     <td>
     <a class="btn btn-primary btn-sm d-inline" href="{{ url('admin/posts/'. $post->id . '/edit') }}">Sửa</a>
         {{-- <a onclick="return destroy()" href="{{ route('posts.destroy') }}" class="btn btn-danger btn-sm">Xóa</a> --}}

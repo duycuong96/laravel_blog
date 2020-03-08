@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Categories\StoreRequest;
+use App\Http\Requests\Categories\UpdateRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use App\Models\Category;
@@ -73,9 +74,9 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $cate = Category::find($id);
+        $category = Category::find($id);
         return view('admin.categories.edit', [
-            'cate' => $cate,
+            'category' => $category,
         ]);
     }
 
@@ -86,9 +87,17 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateRequest $request, $id)
     {
-        //
+        $category = Category::find($id);
+        $data = Arr::except($request->all(), [
+            '_token',
+            'image',
+        ]);
+        $data['image'] = $request->file('image')->store('images', 'public');
+        $category->update($data);
+
+        return redirect()->route('categories.index');
     }
 
     /**

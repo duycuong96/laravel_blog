@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 // client
 Route::get('/', 'client\HomeController')->name('homepage');
+Route::get('/', 'client\HomeController')->name('homepage');
 
 // administration
 Route::group([
@@ -31,8 +32,13 @@ Route::group([
     Route::resource('comments', 'admin\CommentController');
 });
 
-Route::get('login', 'AuthController@getLoginForm');
+// đăng ký - register
+Route::get('register', 'AuthController@getRegisterForm')->name('form-register');
+Route::post('register', 'AuthController@register')->name('auth.register');
+// đăng nhập - singin
+Route::get('login', 'AuthController@getLoginForm')->name('form-login');
 Route::post('login', 'AuthController@login')->name('auth.login');
+// đăng xuất
 Route::get('logout', 'AuthController@logout')->name('auth.logout');
 
 
