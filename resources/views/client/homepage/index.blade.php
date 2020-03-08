@@ -1,6 +1,7 @@
 @extends('client.layouts.layout')
 
 @section('contents')
+<div id="main-content" class="main-content-area">
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-sm-12">
@@ -175,5 +176,6 @@
             </div><!-- /.sidebar-area -->
         </div>
     </div>
+</div>
 </div>
 @endsection

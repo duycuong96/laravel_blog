@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 // client
 Route::get('/', 'client\HomeController')->name('homepage');
-Route::get('/', 'client\HomeController')->name('homepage');
+Route::resource('account', 'client\AccountController')->middleware(['check_auth']);
 
 // administration
 Route::group([

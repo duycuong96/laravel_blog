@@ -56,15 +56,10 @@
         @include('client.layouts.header');
         <!-- header-area end -->
 
-
-		<!-- slider-area start -->
-        @include('client.layouts.slider')
-		<!-- slider-area end -->
-
 		<!-- main-content-area start -->
-		<div id="main-content" class="main-content-area">
+
             @yield('contents')
-		</div>
+
 		<!-- main-content-area end -->
 
 		<!-- footer-area start -->
