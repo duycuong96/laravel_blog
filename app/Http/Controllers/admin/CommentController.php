@@ -3,7 +3,12 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Comment;
+use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
+
 
 class CommentController extends Controller
 {
@@ -14,40 +19,11 @@ class CommentController extends Controller
      */
     public function index()
     {
-        //
+        $comments = Comment::all();
+        // dd($comments);
+        return view('admin.comments.index', ['comments' => $comments]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -57,7 +33,10 @@ class CommentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $posts = Post::all();
+        $comment['comment'] = comment::find($id);
+        // dd($user->name);
+        return view('admin.comments.edit',$comment, ['posts' => $posts]);
     }
 
     /**
@@ -69,7 +48,13 @@ class CommentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request = request()->all();
+        $comment = comment::find($id);
+        // dd($comment['title']);
+        $data = Arr::except($request, ["_token"]);
+        // dd($data);
+        $comment->update($data);
+        return redirect()->route('comments.edit' , $id)->with('success','Cập nhật bình luận thành công');
     }
 
     /**
@@ -80,6 +65,8 @@ class CommentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $comment = Comment::find($id);
+        $comment->delete();
+        return redirect()->route('comments.index');
     }
 }

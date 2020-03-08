@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
 {
+    protected $table='comments';
     protected $fillable = [
         'post_id',
         'title',
@@ -14,5 +15,13 @@ class Comment extends Model
         'is_active',
     ];
 
+    public function post()
+    {
+        return $this->belongsTo('App\Models\Post', 'post_id');
+    }
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User', 'user_id');
+    }
 
 }
