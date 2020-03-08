@@ -16,8 +16,23 @@ use Illuminate\Support\Facades\Route;
 // });
 
 // client
-Route::get('/', 'client\HomeController')->name('homepage');
-Route::resource('account', 'client\AccountController')->middleware(['check_auth']);
+
+
+Route::group(['as' => 'client.'], function () {
+    Route::get('/', 'client\HomeController')->name('homepage');
+
+    Route::group(['middleware' => 'check_auth'], function () {
+        Route::resource('account', 'client\AccountController');
+        Route::resource('my-posts', 'client\PostController');
+        Route::resource('comments', 'client\CommentController', ['only' => [
+            'index', 'create', 'store'
+        ]]);
+    });
+
+    Route::get('categories', 'client\CategoryController@category' )->name('categories');
+    Route::get('posts/{id}', 'client\PostController@detailPost')->name('post');
+
+});
 
 // administration
 Route::group([

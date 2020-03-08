@@ -28,7 +28,7 @@
                     <h6 class="widget-title">about me</h6>
                     <div class="sidebar-content about-me">
                         <div class="my-photo">
-                            <a href="#"><img class="img-circle" src="img/sidebar/me.jpg" alt="My Image" /></a>
+                            <a href="{{route('client.account.index')}}"><img class="img-circle" src="img/sidebar/me.jpg" alt="My Image" /></a>
                         </div>
                         <p>Lorem ipsum dolor sit amet, consecteturs adipisicing elit, sed do
                         eiusmod tempor incididunt labore et dolore aliqua. Ut enim ad minim veniam,</p>
