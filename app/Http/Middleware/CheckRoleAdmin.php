@@ -17,9 +17,14 @@ class CheckRoleAdmin
     public function handle($request, Closure $next)
     {
         // Check Auth by calling check_auth middleware
-
-        if (Auth::user()->role !== config('common.role.admin')) {
-            abort(403);
+        if(Auth::check()){
+            if(Auth::User()->role !== config('common.role.admin')){
+                return redirect('/');
+            }else{
+                return $next($request);
+            }
+        }else{
+            return redirect('login');
         }
         return $next($request);
     }

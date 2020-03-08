@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('avatar');
             $table->string('phone');
-            $table->integer('role_id')->default(config('common.role.user'));
+            $table->integer('role')->default(config('common.role.user'));
             $table->integer('is_active');
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();

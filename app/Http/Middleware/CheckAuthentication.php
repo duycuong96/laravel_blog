@@ -18,7 +18,9 @@ class CheckAuthentication
     {
         if (Auth::check() === false) {
             return redirect()->route('auth.login');
+        } else{
+            return $next($request);
         }
-        return $next($request);
+
     }
 }

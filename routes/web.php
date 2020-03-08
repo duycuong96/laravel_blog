@@ -24,12 +24,12 @@ Route::group(['as' => 'client.'], function () {
     Route::group(['middleware' => 'check_auth'], function () {
         Route::resource('account', 'client\AccountController');
         Route::resource('my-posts', 'client\PostController');
-        Route::resource('comments', 'client\CommentController', ['only' => [
-            'index', 'create', 'store'
-        ]]);
+        // Route::resource('comments', 'client\CommentController', ['only' => [
+        //     'index', 'create', 'store'
+        // ]]);
     });
 
-    Route::get('categories', 'client\CategoryController@category' )->name('categories');
+    // Route::get('categories', 'client\CategoryController@categoryPost' )->name('categories');
     Route::get('posts/{id}', 'client\PostController@detailPost')->name('post');
 
 });
@@ -37,7 +37,7 @@ Route::group(['as' => 'client.'], function () {
 // administration
 Route::group([
     'prefix' => 'admin',
-    'middleware' => 'check_auth',
+    'middleware' => 'check_role_admin',
 ], function () {
     Route::get('/', 'admin\HomeController')->name('admin');
     // user
