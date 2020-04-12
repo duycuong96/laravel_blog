@@ -105,7 +105,7 @@ class PostController extends Controller
             // thêm đoạn chuỗi không bị trùng đằng trước tên ảnh
             $filename = uniqid() . '-' . $filename;
             // lưu ảnh và trả về đường dẫn
-            $path = $request->file('image')->storeAs('public/image', $filename);
+            $path = $request->file('image')->storeAs('image', $filename);
             $post->image = "$path";
         }
 

@@ -22,11 +22,7 @@
 										<li><a href="{{ route('form-login') }}">Đăng nhập</a></li>
 									</ul>
 								</div>
-								<div class="header-search">
-									<form action="#" method="post">
-										<button type="button" class="search-toggler"><i class="fa fa-search"></i></button>
-									</form>
-								</div>
+
 							</div>
 						</div>
 					</div>
@@ -37,14 +33,14 @@
 					<div class="row">
 						<div class="col-md-3">
 							<div class="logo">
-								<a href="index.html"><img src="img/logo/logo.png" alt="Logo" /></a>
+								<a href="{{ route('client.homepage') }}"><img src="img/logo/logo.png" alt="Logo" /></a>
 							</div>
 						</div>
 						<div class="col-md-9">
 							<div class="main-menu">
 								<nav>
 								  <ul class="main-nav navbar-right">
-									<li class="active dropdown"><a href="#">Home</a>
+									<li class="active dropdown"><a href="{{ route('client.homepage') }}">Home</a>
 										<div class="sub-menu">
 											<ul class="home-versions">
 												<li><a href="index.html">Homepage Version 1</a></li>

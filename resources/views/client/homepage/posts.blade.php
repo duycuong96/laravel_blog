@@ -2,7 +2,7 @@
 <div class="col-md-6 col-sm-6">
     <div class="single-popular-post">
         <div class="post-img">
-            <a href="#"><img src="img/blog/5.jpg" alt="Popular Post" /></a>
+            <a href="{{ route('client.post', $post->id) }}"><img src="{{ $post->image}}" alt="Popular Post" / width="100px"></a>
             <a href="#" class="post-tag">Bài viết</a>
             <div class="post-info">
                 <p>
@@ -20,8 +20,10 @@
         </div>
         <div class="post-content">
             <h6 class="post-title"><a href="{{ route('client.post', $post->id) }}">{{ $post->title}}</a></h6>
-            <p class="post-short-desc" style="overflow: hidden;-webkit-line-clamp: 3;height: 75px;display: -webkit-box;-webkit-box-orient: vertical;">{{ $post->content}}</p>
-            <a href="#" class="continue-link">Continue Reading...</a>
+            <p class="post-short-desc" style="overflow: hidden;-webkit-line-clamp: 3;height: 75px;display: -webkit-box;-webkit-box-orient: vertical;">
+                {{ $post->content}}
+            </p>
+            <a href="#" class="continue-link">Đọc thêm...</a>
         </div>
     </div><!-- /.single-popular-post -->
 </div>

@@ -2,6 +2,9 @@
 <tr>
     <td>{{ $post->id}}</td>
     <td>{{ $post->title }}</td>
+    <td>
+        <img src="{{$post->image}}" alt="">
+    </td>
     <td>{{ $post->category->name }}</td>
     <td>
     <a class="btn btn-primary btn-sm d-inline" href="{{ url('admin/posts/'. $post->id . '/edit') }}">Sửa</a>

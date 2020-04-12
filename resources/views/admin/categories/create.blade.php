@@ -49,6 +49,7 @@
                     <div class="input-group">
                       <input type="file" name="image" class="form-control">
                     </div>
+                    {{ showError($errors,'image') }}
                   </div>
 
               </div>

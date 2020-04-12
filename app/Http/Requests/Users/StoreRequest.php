@@ -27,7 +27,7 @@ class StoreRequest extends FormRequest
             'name'=>'required',
             'email'=>'required|email|min:6',
             'password'=>'required|min:6',
-            'avatar' => 'image',
+            'avatar' => 'required|image',
             'phone' => 'required|numeric',
             'role_id' => 'required',
         ];

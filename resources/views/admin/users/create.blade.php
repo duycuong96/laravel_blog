@@ -59,6 +59,7 @@
                   <div class="input-group">
                     <input type="file" name="avatar" class="form-control">
                   </div>
+                  {{ showError($errors,'avatar') }}
                 </div>
                 <div class="form-group">
                     <label>Vai trò</label>

@@ -26,7 +26,7 @@ class StoreRequest extends FormRequest
         return [
             'name'=>'required',
             'description' => 'required',
-            'image'=>'image',
+            'image'=>'required|image',
         ];
     }
 
@@ -35,6 +35,7 @@ class StoreRequest extends FormRequest
         return [
             'name.required' => 'Không được để trống',
             'description.required' =>  'Không được để trống',
+            'image.required' => 'Ảnh không để trống',
             'image.image' => 'Ảnh không đúng định dạng',
         ];
     }

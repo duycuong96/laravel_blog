@@ -33,6 +33,7 @@
     <form action="{{ route('auth.login') }}" method="post">
         @csrf
         {{ showError($errors,'email') }}
+        {{ showError($errors,'password') }}
         <div class="input-group mb-3">
           <input type="email" name="email" class="form-control" placeholder="Email">
           <div class="input-group-append">
