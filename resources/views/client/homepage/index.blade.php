@@ -25,7 +25,7 @@
         <div class="col-md-4 col-md-offset-0 col-sm-8 col-sm-offset-2">
             <div class="sidebar-area fix">
                 <div class="single-sidebar-widget">
-                    <h6 class="widget-title">about me</h6>
+                    <h6 class="widget-title">Về tôi</h6>
                     <div class="sidebar-content about-me">
                         <div class="my-photo">
                             <a href="{{route('client.account.index')}}"><img class="img-circle" src="img/sidebar/me.jpg" alt="My Image" /></a>
