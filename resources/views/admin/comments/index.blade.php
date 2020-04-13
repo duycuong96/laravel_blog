@@ -27,7 +27,7 @@
                 <div class="card card-primary card-outline">
                     <div class="card-header">
                         <h3 class="card-title">Danh sách</h3>
-                        <a href="{{ route('comments.create') }}" class="btn btn-primary float-right">Thêm mới</a>
+                        {{-- <a href="{{ route('comments.create') }}" class="btn btn-primary float-right">Thêm mới</a> --}}
                     </div>
                     <div class="card-body">
                         <table class="table table-head-fixed text-nowrap">

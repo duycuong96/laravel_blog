@@ -94,7 +94,10 @@ class CategoryController extends Controller
             '_token',
             'image',
         ]);
-        $data['image'] = $request->file('image')->store('images', 'public');
+        if($request['image'] != null){
+            $category['image'] = $request->file('image')->store('images', 'public');
+        }
+        // $data['image'] = $request->file('image')->store('images', 'public');
         $category->update($data);
 
         return redirect()->route('categories.index');

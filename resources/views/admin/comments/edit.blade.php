@@ -11,7 +11,7 @@
         <!-- Page Heading -->
       <h1 class="h3 mb-2 text-gray-800">Sửa bình luận</h1>
       @if (session('success'))
-      <div class="alert alert-success">
+      <div class="alert alert-primary">
           <strong>{{ session('success') }} </strong>
       </div>
     @endif
@@ -26,18 +26,18 @@
                   <p>Nội dung</p>
                   <textarea class="form-control bg-light border-0 small"  rows="5" name="content">{{$comment->content}}</textarea>
                   <p>Trạng thái</p>
-                  <select class="form-control bg-light border-0 small" name="status">
+                  <select class="form-control bg-light border-0 small" name="is_active">
                       <option disabled value="">Chọn trạng thái</option>
-                      <option @if ($comment->status == 0) selected @endif value="0">Ẩn</option>
-                      <option @if ($comment->status == 1) selected @endif value="1">Hiện</option>
+                      <option @if ($comment->is_active == 0) selected @endif value="0">Ẩn</option>
+                      <option @if ($comment->is_active == 1) selected @endif value="1">Hiện</option>
                   </select>
-                  <p>Tên bài viết</p>
+                  {{-- <p>Tên bài viết</p> --}}
                   <input type="hidden" name="post_id" value="{{$comment->post_id}}">
-                  <input class="form-control bg-light border-0 small" disabled value="{{$comment->post->title}}" type="text">
+                  {{-- <input class="form-control bg-light border-0 small" disabled value="{{$comment->post->title}}" type="text"> --}}
 
                   <br><br>
                   {{ method_field('PATCH') }}
-                  <button type="submit" class="btn btn-warning btn-icon-split btn-lg">
+                  <button type="submit" class="btn btn-danger btn-icon-split btn-lg">
                       <span class="icon text-white-50">
                         <i class="fas fa-plus"></i>
                       </span>
