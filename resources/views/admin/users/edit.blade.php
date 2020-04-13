@@ -63,24 +63,24 @@
                       <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                     </div>
                   </div>
+                  {{ showError($errors,'avatar') }}
                 </div>
                 <div class="form-group">
                     <label>Vai trò</label>
-                    <select class="custom-select" name="role">
-                      <option value="1">User</option>
-                      <option value="2">Admin</option>
+                    <select class="form-control bg-light border-0 small" name="role">
+                        <option disabled value="">Chọn loại tài khoản</option>
+                        <option @if ($user->role == 1) selected @endif value="1">User</option>
+                        <option @if ($user->role == 2) selected @endif value="2">Admin</option>
                     </select>
+                    {{ showError($errors,'role') }}
                 </div>
                 <div class="form-group">
                     <label>Trạng thái: </label>
-                    <div class="custom-control custom-radio d-inline">
-                      <input class="custom-control-input" type="radio" id="customRadio1" name="is_active" value="1">
-                      <label for="customRadio1" class="custom-control-label">Hoạt động</label>
-                    </div>
-                    <div class="custom-control custom-radio d-inline">
-                      <input class="custom-control-input" type="radio" id="customRadio2" name="is_active" value="0" checked="">
-                      <label for="customRadio2" class="custom-control-label">Không hoạt động</label>
-                    </div>
+                    <select class="form-control bg-light border-0 small" name="is_active">
+                        <option disabled value="">Chọn trang thái</option>
+                        <option @if ($user->is_active == 0) selected @endif value="0">Chưa kích hoạt</option>
+                        <option @if ($user->is_active == 1) selected @endif value="1">Hoạt động</option>
+                    </select>
                 </div>
               </div>
               <!-- /.card-body -->

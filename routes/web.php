@@ -34,7 +34,7 @@ Route::group(['as' => 'client.'], function () {
 // administration
 Route::group([
     'prefix' => 'admin',
-    // 'middleware' => 'check_role_admin',
+    'middleware' => 'check_role_admin',
 ], function () {
     Route::get('/', 'admin\HomeController')->name('admin');
     // user

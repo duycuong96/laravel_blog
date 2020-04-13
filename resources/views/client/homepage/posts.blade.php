@@ -2,7 +2,9 @@
 <div class="col-md-6 col-sm-6">
     <div class="single-popular-post">
         <div class="post-img">
-            <a href="{{ route('client.post', $post->id) }}"><img src="{{ $post->image}}" alt="Popular Post" / width="100px"></a>
+            <a href="{{ route('client.post', $post->id) }}">
+                <img src="img/blog/5.jpg" alt="Popular Post" />
+            </a>
             <a href="#" class="post-tag">Bài viết</a>
             <div class="post-info">
                 <p>

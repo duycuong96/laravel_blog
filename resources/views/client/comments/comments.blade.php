@@ -4,6 +4,6 @@
         <input type="text" placeholder="Name">
         <input type="text" placeholder="Email">
         <textarea placeholder="Message"></textarea>
-        <button type="submit" class="submit-btn">submit</button>
+        <button type="submit" class="submit-btn">Gửi</button>
     </form>
 </div><!-- /.comment-form-area -->

@@ -28,7 +28,7 @@
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
-      <h2 class="login-box-msg">Đăng nhập</h2>
+      <h2 class="login-box-msg">Đăng ký</h2>
 
     <form action="{{ route('auth.login') }}" method="post">
         @csrf
@@ -43,17 +43,25 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" name="password" class="form-control" placeholder="Password">
+          <input type="text" name="password" class="form-control" placeholder="Password">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
             </div>
           </div>
         </div>
+        <div class="input-group mb-3">
+            <input type="text" name="password" class="form-control" placeholder="Cf Password">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+              </div>
+            </div>
+          </div>
         <div class="row">
           <!-- /.col -->
           <div class="col-12">
-            <button type="submit" class="btn btn-primary btn-block">Đăng nhập</button>
+            <button type="submit" class="btn btn-primary btn-block">Đăng ký</button>
           </div>
           <!-- /.col -->
         </div>

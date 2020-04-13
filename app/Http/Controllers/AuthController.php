@@ -22,6 +22,10 @@ class AuthController extends Controller
 
         return redirect()->route('admin');
     }
+
+    public function getRegisterForm(){
+        return view('auth.register');
+    }
     public function logout(){
         Auth::logout();
         return redirect('login');

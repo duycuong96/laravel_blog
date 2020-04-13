@@ -20,6 +20,7 @@ class CheckRoleAdmin
         if(Auth::check()){
             if(Auth::User()->role !== config('common.role.admin')){
                 return redirect('/');
+                // abort(403);
             }else{
                 return $next($request);
             }

@@ -1,7 +1,7 @@
 <div class="comments-area">
     <h6 class="title">Bình luận</h6>
     <hr>
-    <ul class="comments-list">
+    {{-- <ul class="comments-list">
         <li class="single-comment">
             <div class="comment-box">
                 <div class="comment-author">
@@ -18,5 +18,5 @@
                 </div>
             </div>
         </li><!-- /.single-comment -->
-    </ul>
+    </ul> --}}
 </div><!-- /.comments-area -->

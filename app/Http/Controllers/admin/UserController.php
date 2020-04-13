@@ -104,8 +104,15 @@ class UserController extends Controller
             '_token',
             'avatar'
         ]);
-        $data['avatar'] = $request->file('avatar')->store('avatar', 'public');
-        $data['password'] = bcrypt(($data['password']));
+        if($request['avatar'] != null){
+            $user['avatar'] = $request->file('avatar')->store('avatars', 'public');
+        }
+        // dd($user['avatar']);
+        if($data['password'] != null){
+            $user->password = bcrypt($data['password']);
+        }
+        // $data['avatar'] = $request->file('avatar')->store('avatar', 'public');
+        // $data['password'] = bcrypt(($data['password']));
         // $data = $request->all();
         $user->update($data);
         // dd(1);
