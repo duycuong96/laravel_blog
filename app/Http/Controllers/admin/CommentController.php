@@ -54,7 +54,8 @@ class CommentController extends Controller
         $data = Arr::except($request, ["_token"]);
         // dd($data);
         $comment->update($data);
-        return redirect()->route('comments.edit' , $id)->with('success','Cập nhật bình luận thành công');
+        // return redirect()->route('comments.edit' , $id)->with('success','Cập nhật bình luận thành công');
+        return redirect()->route('comments.index');
     }
 
     /**
